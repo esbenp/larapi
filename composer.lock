@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ebb21f36d0c116ce27be08bbc5d5f163",
-    "content-hash": "f4d13663dae627f16931b1e196d78792",
+    "hash": "791eaf79d32eceaea1dbabfe99b814fc",
+    "content-hash": "b5debec603e4eb73599435a7e9f727fa",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -519,16 +519,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.2",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09"
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/064b38c16790249488e7a8b987acf1c9d7383c09",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5f56ed5212dc509c8dc8caeba2715732abb32dbf",
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
                 "shasum": ""
             },
             "require": {
@@ -593,7 +593,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-02 13:12:58"
+            "time": "2016-04-12 18:29:35"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -773,6 +773,42 @@
             "time": "2015-10-29 19:40:54"
         },
         {
+            "name": "optimus/bruno",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/esbenp/bruno.git",
+                "reference": "fcf823bf0ac0043288165f33072afdc3cbf3622d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/esbenp/bruno/zipball/fcf823bf0ac0043288165f33072afdc3cbf3622d",
+                "reference": "fcf823bf0ac0043288165f33072afdc3cbf3622d",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.1",
+                "optimus/architect": "~1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~4.7",
+                "satooshi/php-coveralls": "dev-master@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Optimus\\Bruno\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2016-04-15 21:18:21"
+        },
+        {
             "name": "optimus/distributed-laravel",
             "version": "0.1.1",
             "source": {
@@ -808,21 +844,22 @@
             "time": "2016-03-29 13:50:27"
         },
         {
-            "name": "optimus/eloquent",
-            "version": "0.4.1",
+            "name": "optimus/genie",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/esbenp/eloquent.git",
-                "reference": "c32b483b593c6a21732bf7e7d03c56036a3afd80"
+                "url": "https://github.com/esbenp/genie.git",
+                "reference": "dccf76c5b309c54d9ce125a67fade99250a14b5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/esbenp/eloquent/zipball/c32b483b593c6a21732bf7e7d03c56036a3afd80",
-                "reference": "c32b483b593c6a21732bf7e7d03c56036a3afd80",
+                "url": "https://api.github.com/repos/esbenp/genie/zipball/dccf76c5b309c54d9ce125a67fade99250a14b5e",
+                "reference": "dccf76c5b309c54d9ce125a67fade99250a14b5e",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": ">=4.0"
+                "illuminate/database": ">=4.0",
+                "optimus/bruno": "~2.0"
             },
             "require-dev": {
                 "mockery/mockery": "0.9.*",
@@ -831,54 +868,15 @@
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "tests/TestCase.php"
-                ],
                 "psr-4": {
-                    "Optimus\\Database\\Eloquent\\": "src/"
+                    "Optimus\\Genie\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "time": "2016-02-22 13:17:59"
-        },
-        {
-            "name": "optimus/laravel-controller",
-            "version": "1.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/esbenp/laravel-controller.git",
-                "reference": "0215a898b2b70710a664c6a4dc33d8c9da9eb1df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/esbenp/laravel-controller/zipball/0215a898b2b70710a664c6a4dc33d8c9da9eb1df",
-                "reference": "0215a898b2b70710a664c6a4dc33d8c9da9eb1df",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "~5.1",
-                "optimus/architect": "~1.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "orchestra/testbench": "~3.1",
-                "phpunit/phpunit": "~4.7",
-                "satooshi/php-coveralls": "dev-master@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Optimus\\Api\\Controller\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "time": "2016-02-23 13:34:10"
+            "time": "2016-04-15 23:13:16"
         },
         {
             "name": "paragonie/random_compat",

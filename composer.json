@@ -8,8 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "optimus/distributed-laravel": "^0.1.1",
-        "optimus/bruno": "~1.0",
-        "optimus/eloquent": "0.4.*"
+        "optimus/bruno": "~2.0",
+        "optimus/genie": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
