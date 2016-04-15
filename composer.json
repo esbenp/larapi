@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "optimus/distributed-laravel": "^0.1.1",
-        "optimus/laravel-controller": "~1.0",
+        "optimus/bruno": "~1.0",
         "optimus/eloquent": "0.4.*"
     },
     "require-dev": {

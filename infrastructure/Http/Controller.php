@@ -3,7 +3,7 @@
 namespace Infrastructure\Http;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Optimus\Api\Controller\LaravelController;
+use Optimus\Bruno\LaravelController;
 
 abstract class Controller extends LaravelController
 {
