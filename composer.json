@@ -6,8 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
-        "optimus/distributed-laravel": "^0.1.1",
+        "laravel/framework": "5.3.*",
+        "optimus/distributed-laravel": "~0.1",
         "optimus/bruno": "~2.0",
         "optimus/genie": "~1.0"
     },
