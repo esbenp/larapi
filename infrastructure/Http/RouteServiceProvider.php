@@ -10,11 +10,12 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
+        $router = $this->app->make(Router::class);
+
         $router->pattern('id', '[0-9]+');
 
         parent::boot($router);
