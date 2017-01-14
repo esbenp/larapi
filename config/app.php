@@ -150,6 +150,7 @@ return [
 
         Optimus\Api\System\TranslationServiceProvider::class,
         Optimus\Api\System\ViewServiceProvider::class,
+        Optimus\Heimdal\Provider\LaravelServiceProvider::class,
 
         /*
          * Application Service Providers...
