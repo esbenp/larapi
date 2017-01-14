@@ -38,7 +38,7 @@ $app->singleton(
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Optimus\Heimdal\ExceptionHandler::class
+    Infrastructure\Exceptins\Handler::class
 );
 
 /*
