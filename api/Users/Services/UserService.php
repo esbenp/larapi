@@ -43,19 +43,19 @@ class UserService
 
     public function create($data)
     {
-        $this->database->beginTransaction();
-
         try {
+            $this->database->beginTransaction();
+
             $user = $this->userRepository->create($data);
 
             $this->dispatcher->fire(new UserWasCreated($user));
+            
+            $this->database->commit();
         } catch (Exception $e) {
             $this->database->rollBack();
 
             throw $e;
         }
-
-        $this->database->commit();
 
         return $user;
     }
@@ -64,19 +64,19 @@ class UserService
     {
         $user = $this->getRequestedUser($userId);
 
-        $this->database->beginTransaction();
-
         try {
+            $this->database->beginTransaction();
+            
             $this->userRepository->update($user, $data);
 
             $this->dispatcher->fire(new UserWasUpdated($user));
+            
+            $this->database->commit();
         } catch (Exception $e) {
             $this->database->rollBack();
 
             throw $e;
         }
-
-        $this->database->commit();
 
         return $user;
     }
@@ -85,19 +85,19 @@ class UserService
     {
         $user = $this->getRequestedUser($userId);
 
-        $this->database->beginTransaction();
-
         try {
+            $this->database->beginTransaction();
+
             $this->userRepository->delete($userId);
 
             $this->dispatcher->fire(new UserWasDeleted($user));
+    
+            $this->database->commit();
         } catch (Exception $e) {
             $this->database->rollBack();
 
             throw $e;
         }
-
-        $this->database->commit();
     }
 
     private function getRequestedUser($userId)
