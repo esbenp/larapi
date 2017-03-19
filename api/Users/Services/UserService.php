@@ -3,6 +3,7 @@
 namespace Api\Users\Services;
 
 use Exception;
+use Illuminate\Auth\AuthManager;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Events\Dispatcher;
 use Api\Users\Exceptions\UserNotFoundException;
@@ -13,6 +14,8 @@ use Api\Users\Repositories\UserRepository;
 
 class UserService
 {
+    private $auth;
+
     private $database;
 
     private $dispatcher;
@@ -20,10 +23,12 @@ class UserService
     private $userRepository;
 
     public function __construct(
+        AuthManager $auth,
         DatabaseManager $database,
         Dispatcher $dispatcher,
         UserRepository $userRepository
     ) {
+        $this->auth = $auth;
         $this->database = $database;
         $this->dispatcher = $dispatcher;
         $this->userRepository = $userRepository;
@@ -43,19 +48,9 @@ class UserService
 
     public function create($data)
     {
-        $this->database->beginTransaction();
+        $user = $this->userRepository->create($data);
 
-        try {
-            $user = $this->userRepository->create($data);
-
-            $this->dispatcher->fire(new UserWasCreated($user));
-        } catch (Exception $e) {
-            $this->database->rollBack();
-
-            throw $e;
-        }
-
-        $this->database->commit();
+        $this->dispatcher->fire(new UserWasCreated($user));
 
         return $user;
     }
@@ -64,19 +59,9 @@ class UserService
     {
         $user = $this->getRequestedUser($userId);
 
-        $this->database->beginTransaction();
+        $this->userRepository->update($user, $data);
 
-        try {
-            $this->userRepository->update($user, $data);
-
-            $this->dispatcher->fire(new UserWasUpdated($user));
-        } catch (Exception $e) {
-            $this->database->rollBack();
-
-            throw $e;
-        }
-
-        $this->database->commit();
+        $this->dispatcher->fire(new UserWasUpdated($user));
 
         return $user;
     }
@@ -85,19 +70,9 @@ class UserService
     {
         $user = $this->getRequestedUser($userId);
 
-        $this->database->beginTransaction();
+        $this->userRepository->delete($userId);
 
-        try {
-            $this->userRepository->delete($userId);
-
-            $this->dispatcher->fire(new UserWasDeleted($user));
-        } catch (Exception $e) {
-            $this->database->rollBack();
-
-            throw $e;
-        }
-
-        $this->database->commit();
+        $this->dispatcher->fire(new UserWasDeleted($user));
     }
 
     private function getRequestedUser($userId)

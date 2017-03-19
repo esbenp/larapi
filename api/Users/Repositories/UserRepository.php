@@ -16,6 +16,8 @@ class UserRepository extends Repository
     {
         $user = $this->getModel();
 
+        $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+
         $user->fill($data);
         $user->save();
 

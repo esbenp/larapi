@@ -148,13 +148,16 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Laravel\Passport\PassportServiceProvider::class,
         Optimus\Api\System\TranslationServiceProvider::class,
         Optimus\Api\System\ViewServiceProvider::class,
+        Optimus\ApiConsumer\Provider\LaravelServiceProvider::class,
         Optimus\Heimdal\Provider\LaravelServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
+        Infrastructure\Auth\AuthServiceProvider::class,
         Infrastructure\Http\RouteServiceProvider::class,
 
     ],

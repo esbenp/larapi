@@ -8,7 +8,7 @@ return [
 
 
     'protection_middleware' => [
-        
+        'auth:api'
     ],
 
     'resource_namespace' => 'resources',
