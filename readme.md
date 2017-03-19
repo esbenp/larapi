@@ -20,7 +20,7 @@ Larapi comes included with...
 
 We maintain a fairly large Laravel API at [Traede](https://traede.com). Our philosophy is to utilize the framework as much as possible. 
 However, we also strongly feel that the amount of people that use Laravel for API development is not as large as it could be. 
-We *feel* that Laravel as a tries to focus more on traditional web development (i.e. rendering HTML). We try to modify the framework 
+We *feel* that Laravel as a framework tries to focus more on traditional web development (i.e. rendering HTML). We try to modify the framework 
 just a little bit so it is more suited for API development. Larapi is the result of the changes we have made at Traede in order 
 to make Laravel more enjoyable as an API framework.
 
