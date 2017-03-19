@@ -10,7 +10,7 @@ Larapi comes included with...
 * Laravel Passport for OAuth Authentication, including a proxy for password and refresh-token grants
 * A new directory structure optimized for separating infrastructure and domain code. Groups your controllers, models, etc. by resource-type. 
 [Read more and view the source code here](https://github.com/esbenp/distributed-laravel)
-* [Optimus\Heimdal](https://github.com/esbenp/heimdal: A modern exception handler for APIs with Sentry and Bugsnag integration out-of-the-box
+* [Optimus\Heimdal](https://github.com/esbenp/heimdal): A modern exception handler for APIs with Sentry and Bugsnag integration out-of-the-box
 * [Optimus\Bruno](https://github.com/esbenp/bruno): A base controller class that gives sorting, filtering, eager loading and pagination for your endpoints
 * [Optimus\Genie](https://github.com/esbenp/genie): A base repository class for requesting entities from your database. Includes integration with Bruno.
 * [Optimus\Architect](https://github.com/esbenp/architect): A library for creating advanced structures of related entities
