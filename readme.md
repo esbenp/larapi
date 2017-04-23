@@ -44,6 +44,12 @@ Copy the `.env` file an create an application key
 cp .env.example .env && php artisan key:generate
 ```
 
+Migrate the database tables
+
+```
+php artisan migrate
+```
+
 Larapi comes with Passport include as the default authenticatin method. You should now install it using this command.
 
 ```
@@ -60,12 +66,6 @@ PASSWORD_CLIENT_SECRET=FJWQRS3PQj6atM6fz5f6AtDboo59toGplcuUYrKL
 ```
 
 If you want to save it elsewhere or change the naming be sure to modify the LoginProxy in `infrastructure/Auth/LoginProxy.php`
-
-Lastly, migrate the database tables
-
-```
-php artisan migrate
-```
 
 ## Test installation
 
