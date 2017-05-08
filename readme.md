@@ -43,8 +43,13 @@ Copy the `.env` file an create an application key
 ```
 cp .env.example .env && php artisan key:generate
 ```
+Larapi comes with Passport, included as the default authenticatin method. The Passport service provider registers its own database migration directory with the framework, so firstly you should migrate your database by running `migrate` command before running `passport:install` command. The Passport migrations will create the tables your application needs to store clients and access tokens. ( [more details on passport installation](https://laravel.com/docs/5.4/passport#installation) )
 
-Larapi comes with Passport include as the default authenticatin method. You should now install it using this command.
+```
+php artisan migrate
+``` 
+
+After running the migration, you should now install it using this command.
 
 ```
 php artisan passport:install
@@ -61,11 +66,7 @@ PASSWORD_CLIENT_SECRET=FJWQRS3PQj6atM6fz5f6AtDboo59toGplcuUYrKL
 
 If you want to save it elsewhere or change the naming be sure to modify the LoginProxy in `infrastructure/Auth/LoginProxy.php`
 
-Lastly, migrate the database tables
-
-```
-php artisan migrate
-```
+Finally,the installation has completed, ready for testing.
 
 ## Test installation
 
