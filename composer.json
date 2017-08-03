@@ -8,11 +8,11 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.4.*",
         "optimus/distributed-laravel": "~0.1",
-        "optimus/bruno": "~2.0",
-        "optimus/genie": "~1.0",
+        "optimus/bruno": "~3.0",
+        "optimus/genie": "~2.0",
         "sentry/sentry": "~1.6",
         "optimus/heimdal": "~1.0",
-        "laravel/passport": "^2.0",
+        "laravel/passport": "^3.0",
         "optimus/api-consumer": "0.2.*"
     },
     "require-dev": {
