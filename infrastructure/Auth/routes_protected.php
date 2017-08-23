@@ -1,3 +1,3 @@
 <?php
 
-$router->post('/logout', 'LoginController@logout');
+$router->post('/logout', '\Infrastructure\Auth\Controllers\LoginController@logout');

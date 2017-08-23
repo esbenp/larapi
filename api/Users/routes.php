@@ -1,7 +1,7 @@
 <?php
 
-$router->get('/users', 'UserController@getAll');
-$router->get('/users/{id}', 'UserController@getById');
-$router->post('/users', 'UserController@create');
-$router->put('/users/{id}', 'UserController@update');
-$router->delete('/users/{id}', 'UserController@delete');
+$router->get('/users', '\Api\Users\Controllers\UserController@getAll');
+$router->get('/users/{id}', '\Api\Users\Controllers\UserController@getById');
+$router->post('/users', '\Api\Users\Controllers\UserController@create');
+$router->put('/users/{id}', '\Api\Users\Controllers\UserController@update');
+$router->delete('/users/{id}', '\Api\Users\Controllers\UserController@delete');
