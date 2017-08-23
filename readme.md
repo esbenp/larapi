@@ -44,7 +44,7 @@ Copy the `.env` file an create an application key
 cp .env.example .env && php artisan key:generate
 ```
 
-Migrate the database tables
+Migrate the tables.
 
 ```
 php artisan migrate
