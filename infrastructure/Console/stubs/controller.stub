@@ -1,0 +1,84 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyPath\Models\DummyVariable;
+use DummyPath\Services\DummyVariableService;
+use Illuminate\Http\Request;
+use Infrastructure\Http\Controller;
+
+class DummyClass extends Controller
+{
+    public $dummyVariableService;
+
+    public function __construct
+        (
+            DummyVariableService $dummyVariableService
+        )
+        {
+            $this->dummyVariableService = $dummyVariableService;
+        }
+    
+        public function getAll()
+        {
+            $resourceOptions = $this->parseResourceOptions();
+    
+            $data = $this->dummyVariableService->getAll($resourceOptions, true);
+            $parsedData = $this->parseData($data, $resourceOptions );
+    
+            return $this->response($parsedData);
+        }
+    
+        public function getById($dummyVariableId)
+        {
+            $resourceOptions = $this->parseResourceOptions();
+    
+            $data = $this->dummyVariableService->getById($dummyVariableId, $resourceOptions);
+            $parsedData = $this->parseData($data, $resourceOptions);
+    
+            return $this->response($parsedData);
+        }
+    
+        public function create(Request $request)
+        {
+            $data = $request->all();
+
+            $response = $this->dummyVariableService->create($data);
+
+                if ($response instanceof DummyVariable) {
+                    return [
+                        'status' => true,
+                        'dummyVariable' => $response,
+                    ];
+                } else {
+                    return [
+                        'status' => false,
+                        'message' => $response,
+                    ];
+                }
+            }
+    
+        public function update($dummyVariableId, Request $request)
+        {
+            $data = $request->all();
+
+            $response = $this->dummyVariableService->update($dummyVariableId, $data);
+    
+            if ($response instanceof DummyVariable) {
+                return [
+                    'status' => true,
+                    'dummyVariable' => $response,
+                ];
+            } else {
+                return [
+                    'status' => false,
+                    'message' => $response,
+                ];
+            }
+        }
+    
+        public function delete($dummyVariableId)
+        {
+            return $this->response($this->dummyVariableService->delete($dummyVariableId));
+        }
+}

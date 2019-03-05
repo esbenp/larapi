@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        AddUserCommand::class
+        AddUserCommand::class,
+        ComponentMakeCommand::class,
     ];
 
     /**
