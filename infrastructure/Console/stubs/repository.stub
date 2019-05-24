@@ -1,0 +1,51 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyPath\Models\DummyVariable;
+use Infrastructure\Database\Eloquent\Repository;
+
+class DummyClass extends Repository
+{
+    public function getModel()
+    {
+        return new DummyVariable();
+    }
+
+    public function create(array $data)
+    {
+        $dummyVariable = $this->getModel();
+
+        $dummyVariable->fill($data);
+        $dummyVariable->save();
+
+        return $dummyVariable;
+    }
+
+    public function update(DummyVariable $dummyVariable, array $data)
+    {
+        $dummyVariable->fill($data);
+
+        $dummyVariable->save();
+
+        return $dummyVariable;
+    }
+
+    public function getWhereArray(array $clauses, array $options = [])
+    {
+        $query = $this->createBaseBuilder($options);
+
+        $query->where($clauses);
+
+        return $query->get();
+    }
+
+    public function getFirstWhereArray(array $clauses, array $options = [])
+    {
+        $query = $this->createBaseBuilder($options);
+
+        $query->where($clauses);
+
+        return $query->first();
+    }
+}

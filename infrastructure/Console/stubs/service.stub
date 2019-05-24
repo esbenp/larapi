@@ -1,0 +1,81 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyPath\Repositories\DummyVariableRepository;
+use Illuminate\Database\DatabaseManager;
+use Illuminate\Events\Dispatcher;
+
+class DummyClass
+{
+    public $dummyVariableRepository;
+
+    public function __construct(
+        DatabaseManager $database,
+        Dispatcher $dispatcher,
+        DummyVariableRepository $dummyVariableRepository
+    )
+    {
+        $this->database = $database;
+        $this->dispatcher = $dispatcher;
+        $this->dummyVariableRepository = $dummyVariableRepository;
+    }
+
+ public function getAll($options = [], $paginate = null)
+     {
+         return $this->dummyVariableRepository->get($options, $paginate);
+     }
+ 
+     public function getById($dummyVariableId, array $options = [])
+     {
+         $dummyVariable = $this->getRequestedDummyVariable($dummyVariableId);
+ 
+         return $dummyVariable;
+     }
+ 
+     public function getWhere($columns, $values){
+         $dummyVariable = $this->getRequestedDummyVariableByName($columns, $values);
+ 
+         return $dummyVariable;
+     }
+ 
+     public function getWhereArray($clauses){
+         $dummyVariable = $this->getRequestedDummyVariableByArray($clauses);
+ 
+         return $dummyVariable->first();
+     }
+ 
+    public function create($data){
+
+        $dummyVariable = $this->dummyVariableRepository->create($data);
+
+        $dummyVariable->save();
+
+        return $dummyVariable;
+    }
+ 
+     public function update($dummyVariableId, array $data)
+     {
+         $dummyVariable = $this->getRequestedDummyVariable($dummyVariableId);
+ 
+         $this->dummyVariableRepository->update($dummyVariable, $data);
+  
+         return $dummyVariable;
+     }
+ 
+     public function delete($dummyVariableId)
+     {
+         $dummyVariable = $this->getRequestedDummyVariable($dummyVariableId);
+ 
+         $this->dummyVariableRepository->delete($dummyVariableId);
+ 
+         return response("$dummyVariable->id deleted", 200);
+      }
+ 
+     private function getRequestedDummyVariable($dummyVariableId)
+     {
+         $dummyVariable = $this->dummyVariableRepository->getById($dummyVariableId);
+ 
+         return $dummyVariable;
+     }
+}
