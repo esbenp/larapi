@@ -48,9 +48,10 @@ class UserService
 
     public function create($data)
     {
+       
         $user = $this->userRepository->create($data);
-
-        $this->dispatcher->fire(new UserWasCreated($user));
+        
+        $this->dispatcher->dispatch(new UserWasCreated($user));
 
         return $user;
     }
@@ -61,7 +62,7 @@ class UserService
 
         $this->userRepository->update($user, $data);
 
-        $this->dispatcher->fire(new UserWasUpdated($user));
+        $this->dispatcher->dispatch(new UserWasUpdated($user));
 
         return $user;
     }
@@ -72,7 +73,7 @@ class UserService
 
         $this->userRepository->delete($userId);
 
-        $this->dispatcher->fire(new UserWasDeleted($user));
+        $this->dispatcher->dispatch(new UserWasDeleted($user));
     }
 
     private function getRequestedUser($userId)
